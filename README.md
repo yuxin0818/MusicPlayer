@@ -8,4 +8,4 @@ How to start server:
 
 Open your browser and input:
 
-`localhost:<your port>`
+`localhost:5500`
