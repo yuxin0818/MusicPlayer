@@ -1,10 +1,30 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import { getDatabase, ref, child, push, update, set } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+const music = new Audio("/audio/1.mp3");
 
+const songs = [
+    {
+        id: 1,
+        songName: `Song 1 <br> 
+        <div class="subtitle">Artists 1</div>`,
+        poster: "img/1.jpg"
+    },
+    {
+        id: 2,
+        songName: `Song 2 <br> 
+        <div class="subtitle">Artists 1</div>`,
+        poster: "img/2.jpg"
+    }
+]
+
+Array.from(document.getElementsByClassName('songItem').forEach((e, i) => {
+    // e.getElementsByTagName('title
+
+}))
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -24,16 +44,14 @@ const analytics = getAnalytics(app);
 const auth = getDatabase(app);
 const db = getDatabase(app);
 
-document.getElementById('Register_btn').addEventListener('click', register);
-
 // set up our register function
+document.getElementById('Register_btn').addEventListener('click', register);
 function register() {
     // get all out input fields
     console.log('register function')
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const full_name = document.getElementById('full_name').value
-    console.log(email)
 
     // validate input fields
     if (!validate_email(email) || !validate_password(password)) {
@@ -44,10 +62,8 @@ function register() {
         alert("full_name cannot be empty");
         return
     }
-
     // move on with auth
     const auth = getAuth();
-
 createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
@@ -66,7 +82,50 @@ createUserWithEmailAndPassword(auth, email, password)
   });
 
 }
+// set up our login function
+document.getElementById('Login_btn').addEventListener('click', login);
+function login() {
+    console.log('login function')
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    // validate input fields
+    if (!validate_email(email) || !validate_password(password)) {
+        alert("email or password is invalid");
+        return
+    } 
+        // move on with auth
+    const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // update(ref(db, 'users/' + user.uid), {
+    //     last_login : Date.now()
+    // });
+    const postData = {
+        last_login : Date.now()
+      };
+    
+    // Get a key for a new Post.
+    const newPostKey = push(child(ref(db), 'posts')).key;
+    
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    const updates = {};
+    updates['/posts/' + newPostKey] = postData;
+    updates['/user-posts/' + user.uid + '/' + newPostKey] = postData;
+    
+    update(ref(db), updates);
 
+    alert('User Logged In!');
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+  });
+
+}
 // check email valid or not
 function validate_email(email) {
     var expression = /^[^@]+@\w+(\.\w+)+\w$/
@@ -94,3 +153,7 @@ function validate_field(field) {
         return true;
     }
 }
+
+
+// add adio
+

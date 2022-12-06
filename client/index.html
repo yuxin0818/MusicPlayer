@@ -5,9 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <script type="module" src="index.js"></script>
+
+
     <title>This is a test</title>
 </head>
-    <body>
+    <body class="aurora-outer">
         <header>
 
         </header>
@@ -26,28 +30,110 @@
                 <li><a href="login.html" role="button">LOG IN</a></li>
             </ul>
         </nav>
+<!-- // TODO: remove!!!!! -->
+        <!-- <div style="background-color: rgb(34 0 88 / 61%);backdrop-filter: blur(5px) grayscale(1);position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;z-index: 10;display: block;" id="info_prompt">
+            <div style="width:70%;height:70%;position:absolute;top:50%;left:50%;transform: translate(-50%, -50%);background-color: #544C84;border-radius: 2vmin;">
+               <center>
+                   <div style="height: calc(100% - 8% - 7.25vmin);width: 100%;position: absolute;top:0px;left:0px">
+                        <p id="" style="font-size:4vmin;width:100%;/*height:50%;*/padding: 0px;margin-block: 1%;font-size: 8vmin;top: 5%;color: white;position: absolute;font-weight: 700;left: 50%;transform: translate(-50%,0%);">SIgn-up or Login</p>
+                    </div>
+                  <button style="top: 1%;right: 1%;width: 5%;position:absolute;font-size: 6vmin;padding:0" onclick="document.getElementById('info_prompt').style.display = 'none'">
+                     <center>X</center>
+                  </button>
+               </center>
+            </div>
+        </div> -->
 
+        <div class="aurora-outer">
+            <div class="aurora-inner">
+              
+            </div>
+        </div>
 
-        <div class="class middle"></div>
-        <div class="class outer" style="--index: 1;"><img src="/img/Omar.png" alt="Artist1"></div>
-        <div class="class outer" style="--index: 2;"><img src="/img/Omar.png" alt="Artist1"></div>
-        <div class="class outer" style="--index: 3;"><img src="/img/Omar.png" alt="Artist1"></div>
-        <div class="class outer" style="--index: 4;"><img src="/img/Omar.png" alt="Artist1"></div>
-        <div class="class outer" style="--index: 5;"><img src="/img/Omar.png" alt="Artist1"></div>
-        <div class="class outer" style="--index: 6;"><img src="/img/Omar.png" alt="Artist1"></div>
+        <div class="menu_side">
+            <!-- <div class="playlist">
+                <h4><span></span><i class="fa-solid fa-music"></i></h4>
+                <h4><span></span><i class="fa-solid fa-music"></i></h4>
+
+            </div> -->
+            <div class="menu_song">
+                <h1>Playlist</h1>
+                <li class="songItem">
+                    <span>01</span>
+                    <img src="/img/1.png" alt="">
+                    <h5>Song 1 <br> 
+                        <div class="subtitle">Singner 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="1"></i>
+                </li>
+                <li class="songItem">
+                    <span>01</span>
+                    <img src="/img/Tyler.png" alt="">
+                    <h5>Song 1 <br> 
+                        <div class="subtitle">Singner 1</div>
+                    </h5>
+                    
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+            </div>
+        </div>
+
+        
+
+        <div class="hov">
+            <div class="class middle"></div>
+            <div class="class outer" style="--index: 1;"><img src="/img/Doja.png" alt="Artist1"></div>
+            <div class="class outer" style="--index: 2;"><img src="/img/Omar.png" alt="Artist1"></div>
+            <div class="class outer" style="--index: 3;"><img src="/img/Dua.png" alt="Artist1"></div>
+            <div class="class outer" style="--index: 4;"><img src="/img/Weeknd.png" alt="Artist1"></div>
+            <div class="class outer" style="--index: 5;"><img src="/img/Miley.png" alt="Artist1"></div>
+            <div class="class outer" style="--index: 6;"><img src="/img/Tyler.png" alt="Artist1"></div>
+        </div>
+        
 
         <div class="container">
-            <h1>This is a test</h1>
+            
             
         </div>
 
         <div class="bottom">
-            <input type="range" name="range" id="myProgressBar" min="0" max="100">
-            <div class="playBar">
+            <div class="wave">
+                <div class="wave1"></div>
+                <div class="wave2"></div>
+                <div class="wave3"></div>
+            </div>
+            <img src="/img/Tyler.png" id="poster" alt="">
+            <h5 id="title">
+                Song Title 
+                <div class="subtitle">Singer 1</div>
+            </h5>
+            <div class="play_icon">
                 <i class="fas fa-2x"><img src="/img/PreviousIcon.png" alt="previoius"></i>
                 <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius"></i>
                 <i class="fas fa-2x"><img src="/img/NextIcon.png" alt="previoius"></i>
             </div>
+            <span id="currentStart">0:00</span>
+            <div class="bar">
+                <input type="range" id="seek" min="0" max="100">
+                <div class="bar2" id="bar2"></div>
+                <div class="dot"></div>
+            </div>
+            <span id="currentEnd">0:30</span>
+            <div class="vol">
+                <i class="bi"><img src="/img/vol.png" alt="vol"></i>
+                <input type="range" id="vol" min="0" max="100">
+                <div class="vol_bar" ></div>
+                <div class="dot" id="vol_dot"></div>
+
+            </div>
+
+            <!-- <input type="range" name="range" id="myProgressBar" min="0" max="100"> -->
+            
+            <!-- <div class="playBar">
+                <i class="fas fa-2x"><img src="/img/PreviousIcon.png" alt="previoius"></i>
+                <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius"></i>
+                <i class="fas fa-2x"><img src="/img/NextIcon.png" alt="previoius"></i>
+            </div> -->
             
         </div>
 
@@ -55,7 +141,7 @@
             <p>Hello</p>
         </div> -->
 
-        <script type="module" src="index.js"></script>
+
     </body>
 
 </html>
