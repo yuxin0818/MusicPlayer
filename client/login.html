@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap">
+    <script type="module" src="index.js"></script>
 </head>
 
 <body>
@@ -22,17 +23,19 @@
                     <input type="password" id="password" placeholder="New Password">
 
                     <!-- TODO: button doesn't work  -->
-                    <div idi="button_container">
-                        <!-- <button onclick="login()" id="Login">Login</button>
-                        <button onclick="register()" id="Register">Register</button> -->
+                    <div id="button_container">
+                        <!-- <button onclick="login()" id="Login">Login</button> -->
+                        <button type="button" id="Register_btn">Register</button>
+                        <!-- <input id="register" type="button" value="Register" onClick="register();"/> -->
                         <button id="login">Login</button>
-                        <button id="register">Register</button>
+                        <!-- <button id="register">Register</button> -->
                         
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <script type="module" src="index.js"></script> -->
 </body>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -46,7 +49,7 @@
 
 
 <!-- <script src="index.js"></script> -->
-<script type="module" src="./index.js"></script>
+<!-- <script type="module" src="index.js"></script> -->
 </html>
 
 

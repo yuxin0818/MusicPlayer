@@ -1,10 +1,7 @@
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// export * from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -25,58 +22,54 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 // initialize variable
 const auth = getDatabase(app);
-const database = getDatabase(app);
+const db = getDatabase(app);
 
+document.getElementById('Register_btn').addEventListener('click', register);
 
-// TODO: Event Handlers doesn't work 
 // set up our register function
 function register() {
     // get all out input fields
-    const email = document.getElementById('email');
-    email.addEventListener("click", register, false);
-    email.myParam = email.value
-    password = document.getElementById('password').addEventListener("click", register, false);
-    full_name = document.getElementById('full_name').addEventListener("click", register, false);
+    console.log('register function')
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const full_name = document.getElementById('full_name').value
+    console.log(email)
 
     // validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
+    if (!validate_email(email) || !validate_password(password)) {
         alert("email or password is invalid");
         return
     } 
-    if (validate_field(full_name) == false) {
+    if (!validate_field(full_name)) {
         alert("full_name cannot be empty");
         return
     }
 
     // move on with auth
-    auth.createUserWithEmailAndPassword(email, password);
-    then(function() {
-        var user = auth.currentUser;
-        var database_ref = database.ref()
-        var user_data = {
-            email : email,
-            full_name : full_name,
-            last_login : Date.now()
-        }
+    const auth = getAuth();
 
-        database_ref.child('users/' + user.uid).set(user_data);
-        alert('User Created!');
-
-    })
-    .catch(function() {
-        // firebase will use this to alert error messages
-        var error_code = error_code;
-        var error_message = error.message;
-
-        alert(error_message);
-
-    })
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    set(ref(db, 'users/' + user.uid), {
+        email : email,
+        full_name : full_name,
+        last_login : Date.now()
+    });
+    alert('User Created!');
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+  });
 
 }
 
 // check email valid or not
 function validate_email(email) {
-    expression = /^[^@]+@\w+(\.\w+)+\w$/;
+    var expression = /^[^@]+@\w+(\.\w+)+\w$/
     if (expression.test(email) == true) {
         return true;
     } else {
@@ -95,7 +88,7 @@ function validate_password(password) {
 
 // name cannot be empty
 function validate_field(field) {
-    if (fields == null) {
+    if (field == null) {
         return false;
     } else {
         return true;
