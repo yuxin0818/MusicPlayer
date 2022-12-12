@@ -5,8 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <script type="module" src="index.js"></script>
+    <script type="module" src="playmusic.js"></script>
 
 
     <title>This is a test</title>
@@ -27,11 +26,14 @@
                 <li>Create Playlist</li>
                 <li class="icons"><img src="/img/FavoriteIcon.png" alt="Home"></li>
                 <li>Liked Songs</li>
-                <li><a href="login.html" role="button">LOG IN</a></li>
+                <!-- <li><a href="login.html" role="button">LOG IN</a></li> -->
+                <li><button type="button"><a href="login.html" role="button">Log In</a></button></li>
+                
+                
             </ul>
         </nav>
 <!-- // TODO: remove!!!!! -->
-        <!-- <div style="background-color: rgb(34 0 88 / 61%);backdrop-filter: blur(5px) grayscale(1);position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;z-index: 10;display: block;" id="info_prompt">
+        <div style="background-color: rgb(34 0 88 / 61%);backdrop-filter: blur(5px) grayscale(1);position: absolute;top: 0px;left: 0px;width: 100%;height: 100%;z-index: 10;display: block;" id="info_prompt">
             <div style="width:70%;height:70%;position:absolute;top:50%;left:50%;transform: translate(-50%, -50%);background-color: #544C84;border-radius: 2vmin;">
                <center>
                    <div style="height: calc(100% - 8% - 7.25vmin);width: 100%;position: absolute;top:0px;left:0px">
@@ -42,7 +44,7 @@
                   </button>
                </center>
             </div>
-        </div> -->
+        </div>
 
         <div class="aurora-outer">
             <div class="aurora-inner">
@@ -50,33 +52,136 @@
             </div>
         </div>
 
+        <!-- <div class="spotify-playlists">
+            <h2>Spotify Playlists</h2>
+
+            <div class="list">
+                <div class="item">
+                    <img src="/img/Doja2.jpg"/>
+                    <div class="play">
+                        <img src="/img/PlayIcon.png"/>
+                    </div>
+                    <h4>Today's Top Hits</h4>
+                    <p>Bad Bunny & Doja Cat are on top of the...</p>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="item">
+                    <img src="/img/Doja2.jpg"/>
+                    <div class="play">
+                        <img src="/img/PlayIcon.png"/>
+                    </div>
+                    <h4>Today's Top Hits</h4>
+                    <p>Bad Bunny & Doja Cat are on top of the...</p>
+                </div>
+            </div> -->
+
+
+
+          <!-- <div id="playlist-wrapper">
+            <div class="playlist">
+
+            </div>
+            <div class="playlist">
+
+            </div>
+            <div class="playlist">
+
+            </div>
+            <div class="playlist">
+
+            </div>
+            </div> -->
+
+        
+        <div class="menu">
         <div class="menu_side">
-            <!-- <div class="playlist">
+            <div class="playlist">
                 <h4><span></span><i class="fa-solid fa-music"></i></h4>
                 <h4><span></span><i class="fa-solid fa-music"></i></h4>
 
-            </div> -->
+            </div>
             <div class="menu_song">
                 <h1>Playlist</h1>
                 <li class="songItem">
                     <span>01</span>
                     <img src="/img/1.png" alt="">
                     <h5>Song 1 <br> 
-                        <div class="subtitle">Singner 1</div>
+                        <div class="subtitle">Artists 1</div>
                     </h5>
                     <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="1"></i>
                 </li>
                 <li class="songItem">
-                    <span>01</span>
-                    <img src="/img/Tyler.png" alt="">
-                    <h5>Song 1 <br> 
-                        <div class="subtitle">Singner 1</div>
+                    <span>02</span>
+                    <img src="/img/2.png" alt="">
+                    <h5>Song 2 <br> 
+                        <div class="subtitle">Artists 1</div>
                     </h5>
-                    
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+                <li class="songItem">
+                    <span>03</span>
+                    <img src="/img/1.png" alt="">
+                    <h5>Song 3 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+                <li class="songItem">
+                    <span>04</span>
+                    <img src="/img/2.png" alt="">
+                    <h5>Song 4 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
                     <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
                 </li>
             </div>
         </div>
+
+        <!-- <div class="menu_side2">
+            <div class="playlist">
+                <h4><span></span><i class="fa-solid fa-music"></i></h4>
+                <h4><span></span><i class="fa-solid fa-music"></i></h4>
+
+            </div>
+            <div class="menu_song">
+                <h1>Playlist</h1>
+                <li class="songItem">
+                    <span>01</span>
+                    <img src="/img/1.png" alt="">
+                    <h5>Song 1 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="1"></i>
+                </li>
+                <li class="songItem">
+                    <span>02</span>
+                    <img src="/img/2.png" alt="">
+                    <h5>Song 2 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+                <li class="songItem">
+                    <span>03</span>
+                    <img src="/img/2.png" alt="">
+                    <h5>Song 2 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+                <li class="songItem">
+                    <span>04</span>
+                    <img src="/img/2.png" alt="">
+                    <h5>Song 2 <br> 
+                        <div class="subtitle">Artists 1</div>
+                    </h5>
+                    <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius" id="2"></i>
+                </li>
+            </div>
+        </div> -->
+    </div>
 
         
 
@@ -102,14 +207,14 @@
                 <div class="wave2"></div>
                 <div class="wave3"></div>
             </div>
-            <img src="/img/Tyler.png" id="poster" alt="">
+            <img src="/img/1.png" id="poster" alt="">
             <h5 id="title">
                 Song Title 
                 <div class="subtitle">Singer 1</div>
             </h5>
             <div class="play_icon">
                 <i class="fas fa-2x"><img src="/img/PreviousIcon.png" alt="previoius"></i>
-                <i class="fas fa-2x"><img src="/img/PlayIcon.png" alt="previoius"></i>
+                <i class="fas fa-2x" id="masterPlay"><img src="/img/PlayIcon.png" class="play_btn" alt="previoius"></i>
                 <i class="fas fa-2x"><img src="/img/NextIcon.png" alt="previoius"></i>
             </div>
             <span id="currentStart">0:00</span>
@@ -143,5 +248,5 @@
 
 
     </body>
-
-</html>
+    
+    </html>
