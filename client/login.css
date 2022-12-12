@@ -1,7 +1,7 @@
 html, body {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(169deg, #2F203B 8%, #141223 46%) #2F203B;
+    background: #75429e97;
 
     display: flex;
     justify-content: center;
@@ -25,10 +25,11 @@ html, body {
 }
 
 #form_container {
-    width: 100%;
+    width: 50%;
     height: 100%;
+    margin-left: 350px;
     
-    background-color: #2F203B;
+    background-color: #6e438c;
     box-shadow: 0 0 50px -20px #000;
 
     overflow: hidden;
@@ -49,17 +50,19 @@ html, body {
 
     border-bottom: 1px solid transparent;
     border-image: -webkit-linear-gradient(25deg, #2F203B 8%, #141223 46%) 20;
-    background: #000;
+    background: rgb(193, 160, 231);
 }
 
 #form_header {
     display: inline-block;
     font-size: 15px;
+    
     font-family: Fredoka;
     width: 100%;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #fff;
 
     background: -webkit-linear-gradient(25deg, #2F203B 8%, #141223 46%);
       -webkit-background-clip: text;
@@ -68,7 +71,7 @@ html, body {
 
 #form_content_container {
     width: 100%;
-    height: 90%;
+    height: 120px;
 
     float: left;
 
@@ -76,7 +79,8 @@ html, body {
     justify-content: center;
     align-items: center;
 
-    padding-top: 30px;
+
+    padding-top: 20px;
 }
 
 #form_content_inner_container {
@@ -93,11 +97,11 @@ input {
     padding-left: 10px;
     margin-bottom: 20px;
 
-    background: #000;
+    background:  rgb(193, 160, 231);
     font-family: Fredoka;
     font-weight: 500;
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
 
     border-bottom: 2px solid transparent;
     border-top-left-radius: 2%;
@@ -128,7 +132,7 @@ input {
     font-family: Fredoka;
     letter-spacing: 1px;
     font-weight: 900;
-    font-size: 12px;
+    font-size: 20px;
 
     cursor: pointer;
 
